@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:text="Select a Store"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignEnd="@+id/imageView4"
+        android:layout_alignStart="@+id/imageView4"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="15dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:onClick="goNext"
+        app:srcCompat="@drawable/walmart_logo" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="23dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:onClick="go_Next"
+        app:srcCompat="@drawable/canadian_tire_logo"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
