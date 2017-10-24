@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Scube solutions</string>
+    <string name="button_home_start">Click to Begin!</string>
+
+    <string-array name="salutation">
+        <item>MR</item>
+        <item>MS</item>
+    </string-array>
+</resources>
+
