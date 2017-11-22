@@ -23,11 +23,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/UserName"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:ems="10"
-        android:hint="Full Name"
+        android:hint="User Name"
         android:inputType="textPersonName"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
@@ -43,7 +43,7 @@
         app:layout_constraintLeft_toRightOf="@+id/spinner" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/Pass"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:ems="10"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/Email"
         android:layout_width="263dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toTopOf="@+id/editText3" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/PostalCode"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:ems="10"
@@ -107,7 +107,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/Add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
