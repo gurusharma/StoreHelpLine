@@ -7,17 +7,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-//import com.firebase.client.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
 
 public class SignupPage extends AppCompatActivity {
 
@@ -25,11 +21,9 @@ public class SignupPage extends AppCompatActivity {
     private EditText email;
     private EditText pwd;
     private EditText postalcode;
+    private Button add;
 
     //private Firebase rootref;
-    private DatabaseReference mData;
-    private FirebaseDatabase myDatabase = FirebaseDatabase.getInstance();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +33,8 @@ public class SignupPage extends AppCompatActivity {
 
         //refreance to the firebase
 
-        mData= myDatabase.getReference();
-        //rootref = new Firebase("https://chalpadabb.firebaseio.com/");
+
+//        rootref = new Firebase("https://chalpadabb.firebaseio.com/");
 
 
         //Refreance to the text fields
@@ -52,28 +46,7 @@ public class SignupPage extends AppCompatActivity {
 
         //Refrance to the button
 
-        Button add = (Button) findViewById(R.id.add);
-
-
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String username= uname.getText().toString().trim();
-                String email123= email.getText().toString().trim();
-                String password= pwd.getText().toString().trim();
-                String zipcode = postalcode.getText().toString().trim();
-
-
-                HashMap<String, String> datamap= new HashMap<String, String>();
-                datamap.put("Email", email123);
-                datamap.put("Password", password);
-                datamap.put("PostalCode", zipcode);
-
-                mData.push().setValue(datamap);
-
-            }
-        });
+        add = (Button) findViewById(R.id.add);
 
 
         Spinner spinner2 = (Spinner) findViewById(R.id.spinner);
@@ -95,10 +68,10 @@ public class SignupPage extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.logo:
-                goToUrl();
+                goToUrl("http://scube.com");
                 break;
             case R.id.help:
-                goToUrl();
+                goToUrl("http://scube.com");
                 break;
             case R.id.name:
                 recreate();
@@ -113,8 +86,8 @@ public class SignupPage extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void goToUrl() {
-        Uri uriUrl = Uri.parse("http://scube.com");
+    private void goToUrl (String url) {
+        Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
