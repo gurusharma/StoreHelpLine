@@ -14,15 +14,15 @@ public class SecondPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second_page);
+        //setContentView(R.layout.activity_store_list);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     public void goNext(View view) {
-        Intent i = new Intent(this, ThirdPage.class);
+        Intent i = new Intent(this, SearchItems.class);
         startActivity(i);
     }
     public void go_Next(View view) {
-        Intent i = new Intent(this, ThirdPage.class);
+        Intent i = new Intent(this, SearchItems.class);
         startActivity(i);
     }
     @Override

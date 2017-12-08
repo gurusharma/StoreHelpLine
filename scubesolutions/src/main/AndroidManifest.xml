@@ -21,6 +21,9 @@
         <activity android:name=".FourthPage" />
         <activity android:name=".FeedbackPage" />
         <activity android:name=".SignupPage"></activity>
+        <activity android:name=".StoreList"/>
+        <activity android:name=".SearchItems"/>
+
     </application>
 
 </manifest>
