@@ -18,12 +18,12 @@
         </activity>
         <activity android:name=".SecondPage" />
         <activity android:name=".ThirdPage" />
-        <activity android:name=".FourthPage" />
+        <activity android:name=".SignIn" />
         <activity android:name=".FeedbackPage" />
-        <activity android:name=".SignupPage"></activity>
-        <activity android:name=".StoreList"/>
-        <activity android:name=".SearchItems"/>
-
+        <activity android:name=".SignupPage" />
+        <activity android:name=".StoreList" />
+        <activity android:name=".SearchItems" />
+        <activity android:name=".RequestHelp"></activity>
     </application>
 
 </manifest>

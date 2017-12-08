@@ -17,6 +17,7 @@ public class SearchItems extends AppCompatActivity implements View.OnClickListen
 
     EditText searchDB = (EditText) findViewById(R.id.searchEdit);
     Button searchB = (Button) findViewById(R.id.searchButton);
+    Button helpB = (Button) findViewById(R.id.helpButton);
     TextView trendingItem1 = (TextView) findViewById(R.id.trendingItem1);
     TextView trendingItem2 = (TextView) findViewById(R.id.trendingItem2);
     TextView trendingItem3 = (TextView) findViewById(R.id.trendingItem3);
@@ -44,6 +45,7 @@ public class SearchItems extends AppCompatActivity implements View.OnClickListen
         String storeName=intent.getStringExtra("StoreName");//used further in database
 
         searchB.setOnClickListener(this);
+        helpB.setOnClickListener(this);
         trendingItem1.setOnClickListener(this);
         trendingItem2.setOnClickListener(this);
         trendingItem3.setOnClickListener(this);
@@ -81,6 +83,11 @@ public class SearchItems extends AppCompatActivity implements View.OnClickListen
                 Toast toast4= Toast.makeText(this,trendingI4,Toast.LENGTH_SHORT);
                 toast4.show();
                 break;
+
+            case R.id.helpButton:
+                Toast.makeText(this,"Redirecting...",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, RequestHelp.class);
+                startActivity(i);
 
         }
 
