@@ -6,8 +6,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -17,7 +15,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
     }
     public void goNext(View view) {
-        Intent i = new Intent(this, FourthPage.class);
+        Intent i = new Intent(this, SignIn.class);
         startActivity(i);
     }
     @Override

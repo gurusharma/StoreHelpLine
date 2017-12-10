@@ -1,0 +1,61 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/home_background"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/selectStoreHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="Select a Store"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/storeLogo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="53dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/selectStoreHeader"
+        app:layout_constraintTop_toBottomOf="@+id/selectStoreHeader" />
+
+    <TextView
+        android:id="@+id/storeLogo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/storeLogo1"
+        app:layout_constraintTop_toBottomOf="@+id/storeLogo1" />
+
+    <TextView
+        android:id="@+id/storeLogo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/storeLogo2"
+        app:layout_constraintTop_toBottomOf="@+id/storeLogo2" />
+
+    <TextView
+        android:id="@+id/storeLogo4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/storeLogo3"
+        app:layout_constraintTop_toBottomOf="@+id/storeLogo3" />
+
+
+</android.support.constraint.ConstraintLayout>
