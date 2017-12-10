@@ -11,15 +11,16 @@ import android.widget.TextView;
 public class StoreList extends AppCompatActivity implements View.OnClickListener {
 
 
-    TextView store1 = (TextView)findViewById(R.id.storeLogo1);
-    TextView store2 = (TextView)findViewById(R.id.storeLogo2);
-    TextView store3 = (TextView)findViewById(R.id.storeLogo3);
-    TextView store4 = (TextView)findViewById(R.id.storeLogo4);
+    TextView store1, store2, store3, store4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_list);
+        store1 = (TextView)findViewById(R.id.storeLogo1);
+        store2 = (TextView)findViewById(R.id.storeLogo2);
+        store3 = (TextView)findViewById(R.id.storeLogo3);
+        store4 = (TextView)findViewById(R.id.storeLogo4);
     }
 
     @Override

@@ -6,18 +6,29 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity  {
 
+    ImageButton homeButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        homeButton = (ImageButton) findViewById(R.id.imageButton);
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),SignIn.class);
+                startActivity(i);
+            }
+        });
     }
-    public void goNext(View view) {
-        Intent i = new Intent(this, SignIn.class);
-        startActivity(i);
-    }
+
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
@@ -30,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
                 .setNegativeButton("No", null)
                 .show();
     }
+
 
 
 }

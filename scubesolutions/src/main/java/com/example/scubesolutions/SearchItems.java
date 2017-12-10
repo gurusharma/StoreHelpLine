@@ -1,6 +1,5 @@
 package com.example.scubesolutions;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,30 +9,42 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-
 public class SearchItems extends AppCompatActivity implements View.OnClickListener {
 
 
-    EditText searchDB = (EditText) findViewById(R.id.searchEdit);
-    Button searchB = (Button) findViewById(R.id.searchButton);
-    Button helpB = (Button) findViewById(R.id.helpButton);
-    TextView trendingItem1 = (TextView) findViewById(R.id.trendingItem1);
-    TextView trendingItem2 = (TextView) findViewById(R.id.trendingItem2);
-    TextView trendingItem3 = (TextView) findViewById(R.id.trendingItem3);
-    TextView trendingItem4 = (TextView) findViewById(R.id.trendingItem4);
+    EditText searchDB;
+    Button searchB;
+    Button helpB;
+    TextView trendingItem1;
+    TextView trendingItem2;
+    TextView trendingItem3;
+    TextView trendingItem4;
 
-    String trendingI1 = trendingItem1.getText().toString();
-    String trendingI2 = trendingItem2.getText().toString();
-    String trendingI3 = trendingItem3.getText().toString();
-    String trendingI4 = trendingItem4.getText().toString();
-
-    String searchData = searchDB.getText().toString();
+    String trendingI1, trendingI2, trendingI3, trendingI4, searchData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_items);
+
+        searchDB = (EditText) findViewById(R.id.searchEdit);
+        searchB = (Button) findViewById(R.id.searchButton);
+        helpB = (Button) findViewById(R.id.helpButton);
+        trendingItem1 = (TextView) findViewById(R.id.trendingItem1);
+        trendingItem2 = (TextView) findViewById(R.id.trendingItem2);
+        trendingItem3 = (TextView) findViewById(R.id.trendingItem3);
+        trendingItem4 = (TextView) findViewById(R.id.trendingItem4);
+    }
+
+    public void dataInitialise()
+    {
+        trendingI1 = trendingItem1.getText().toString();
+        trendingI2 = trendingItem2.getText().toString();
+        trendingI3 = trendingItem3.getText().toString();
+        trendingI4 = trendingItem4.getText().toString();
+
+        searchData = searchDB.getText().toString();
+
     }
 
 
@@ -56,6 +67,8 @@ public class SearchItems extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+
+        dataInitialise();
 
         switch (view.getId()){
 

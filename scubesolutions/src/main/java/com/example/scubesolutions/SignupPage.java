@@ -15,13 +15,13 @@ import android.widget.Spinner;
 
 public class SignupPage extends AppCompatActivity implements View.OnClickListener {
 
-    EditText uName = (EditText)findViewById(R.id.userNameSignUp); 
-    EditText postcode = (EditText)findViewById(R.id.postalCodeEdit); 
-    EditText email = (EditText)findViewById(R.id.emailEdit); 
-    EditText pwd = (EditText)findViewById(R.id.pwdSignUp1);
-    EditText pwd2 = (EditText)findViewById(R.id.pwdSignUp2); 
+    EditText uName;
+    EditText postcode;
+    EditText email;
+    EditText pwd;
+    EditText pwd2;
    
-    Button addToDB = (Button)findViewById(R.id.signUpButton);
+    Button addToDB;
 
     String userName, postalCode, eMail, password, password2;
     
@@ -30,19 +30,18 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_page);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        uName = (EditText) findViewById(R.id.userNameSignUp);
+        postcode = (EditText)findViewById(R.id.postalCodeEdit);
+        email  = (EditText)findViewById(R.id.emailEdit);
+        pwd = (EditText)findViewById(R.id.pwdSignUp1);
+        pwd2 = (EditText)findViewById(R.id.pwdSignUp2);
+        addToDB = (Button)findViewById(R.id.signUpButton);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        
-        userName = uName.getText().toString().trim();
-        postalCode = postcode.getText().toString().trim();
-        eMail = email.getText().toString().trim();
-        password = pwd.getText().toString();
-        password2 = pwd2.getText().toString();
         
         addToDB.setOnClickListener(this);
         
@@ -50,12 +49,24 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
+
+        dataInitialize();
         //TODO: add all the nessesory validation
         //1)username - no special char
         //2)postalcode - secific format
         //3)email - specific format
         //4)password - not more than 8 char, and can have anything
         //5)password2 = password
+
+    }
+
+    public void dataInitialize(){
+        userName = uName.getText().toString().trim();
+        postalCode = postcode.getText().toString().trim();
+        eMail = email.getText().toString().trim();
+        password = pwd.getText().toString();
+        password2 = pwd2.getText().toString();
+
 
     }
     @Override
