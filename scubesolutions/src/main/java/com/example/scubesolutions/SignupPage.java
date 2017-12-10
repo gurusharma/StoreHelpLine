@@ -7,24 +7,67 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
-public class SignupPage extends AppCompatActivity {
+public class SignupPage extends AppCompatActivity implements View.OnClickListener {
+
+    EditText uName;
+    EditText postcode;
+    EditText email;
+    EditText pwd;
+    EditText pwd2;
+   
+    Button addToDB;
+
+    String userName, postalCode, eMail, password, password2;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_page);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        uName = (EditText) findViewById(R.id.userNameSignUp);
+        postcode = (EditText)findViewById(R.id.postalCodeEdit);
+        email  = (EditText)findViewById(R.id.emailEdit);
+        pwd = (EditText)findViewById(R.id.pwdSignUp1);
+        pwd2 = (EditText)findViewById(R.id.pwdSignUp2);
+        addToDB = (Button)findViewById(R.id.signUpButton);
+    }
 
-        Spinner spinner2 = (Spinner) findViewById(R.id.spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.salutation, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
-// Apply the adapter to the spinner
-        spinner2.setAdapter(adapter);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        
+        addToDB.setOnClickListener(this);
+        
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        dataInitialize();
+        //TODO: add all the nessesory validation
+        //1)username - no special char
+        //2)postalcode - secific format
+        //3)email - specific format
+        //4)password - not more than 8 char, and can have anything
+        //5)password2 = password
+
+    }
+
+    public void dataInitialize(){
+        userName = uName.getText().toString().trim();
+        postalCode = postcode.getText().toString().trim();
+        eMail = email.getText().toString().trim();
+        password = pwd.getText().toString();
+        password2 = pwd2.getText().toString();
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,4 +103,6 @@ public class SignupPage extends AppCompatActivity {
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
+
+    
 }
