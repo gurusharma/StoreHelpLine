@@ -41,11 +41,21 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
         pwd2 = (EditText)findViewById(R.id.pwdSignUp2);
         addToDB = (Button)findViewById(R.id.signUpButton);
 
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.app_open,R.string.app_close);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
+
+
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.app_open,R.string.app_close);
+
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

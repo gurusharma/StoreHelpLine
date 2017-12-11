@@ -4,6 +4,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
     <color name="green">#00FF00</color>
     <color name="White">#FFFFFF</color>
     <color name="LightPink">#FFB6C1</color>
@@ -43,3 +44,7 @@
     </array>
 
 </resources>
+
+    <color name="colorLightBlue">#ADD8E6</color>
+</resources>
+

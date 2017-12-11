@@ -24,6 +24,9 @@
         <activity android:name=".RequestHelp" />
         <activity android:name=".ItemDescription" />
         <activity android:name=".HomeActivity"></activity>
+
+        <activity android:name=".ItemDescription"></activity>
+
     </application>
 
 </manifest>

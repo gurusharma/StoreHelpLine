@@ -13,6 +13,7 @@
         android:background="@color/colorLightBlue"
         android:orientation="vertical">
 
+
         <TextView
             android:id="@+id/signUpHeader"
             android:layout_width="wrap_content"
@@ -106,6 +107,101 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pwdSignUp1" />
 
+
+        <TextView
+        android:id="@+id/signUpHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
+        android:layout_marginTop="16dp"
+        android:text="Please fill in the following details to signup"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@+id/userNameSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+        <EditText
+        android:id="@+id/pwdSignUp1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="11dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        app:layout_constraintBottom_toTopOf="@+id/pwdSignUp2"
+        app:layout_constraintEnd_toEndOf="@+id/pwdSignUp2"
+        app:layout_constraintStart_toStartOf="@+id/pwdSignUp2"
+        app:layout_constraintTop_toBottomOf="@+id/emailEdit"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+        <EditText
+        android:id="@+id/emailEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="13dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/pwdSignUp1"
+        app:layout_constraintEnd_toEndOf="@+id/postalCodeEdit"
+        app:layout_constraintStart_toStartOf="@+id/postalCodeEdit"
+        app:layout_constraintTop_toBottomOf="@+id/postalCodeEdit"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+        <EditText
+        android:id="@+id/postalCodeEdit"
+        android:layout_width="260dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="Postal Code"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/emailEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameSignUp"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+        <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="38dp"
+        android:text="SUBMIT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwdSignUp2"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+        <EditText
+        android:id="@+id/pwdSignUp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="ReType Password"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwdSignUp1" />
+
+
         <EditText
             android:id="@+id/userNameSignUp"
             android:layout_width="wrap_content"
@@ -129,4 +225,10 @@
 
     </android.support.design.widget.NavigationView>
 
+
 </android.support.v4.widget.DrawerLayout>
+
+</android.support.v4.widget.DrawerLayout>
+
+
+
