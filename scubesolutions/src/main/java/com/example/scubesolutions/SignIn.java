@@ -2,6 +2,8 @@ package com.example.scubesolutions;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,7 +22,8 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
     EditText uName;
     EditText pwd;
-
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
     String userName, password;
 
     @Override
@@ -32,7 +35,13 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         uName = findViewById(R.id.userIdEdit);
         pwd = findViewById(R.id.pwdEdit);
 
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.app_open,R.string.app_close);
 
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -76,40 +85,43 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            super.onCreateOptionsMenu(menu);
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.menu, menu);
-            return true;
-        }
+//        @Override
+//        public boolean onCreateOptionsMenu(Menu menu) {
+//            super.onCreateOptionsMenu(menu);
+//            MenuInflater inflater = getMenuInflater();
+//            inflater.inflate(R.menu.menu, menu);
+//            return true;
+//        }
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.logo:
-                    goToUrl("http://google.com");
-                    break;
-                case R.id.help:
-                    goToUrl("http://google.com");
-                    break;
-                case R.id.name:
-                    recreate();
-                    break;
-                case android.R.id.home:
-                    Intent intent = new Intent(SignIn.this, HomeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    finish();
-                    return true;
+            if(mToggle.onOptionsItemSelected(item)){
+                return true;
             }
+//            switch (item.getItemId()) {
+//                case R.id.logo:
+//                    goToUrl("http://google.com");
+//                    break;
+//                case R.id.help:
+//                    goToUrl("http://google.com");
+//                    break;
+//                case R.id.name:
+//                    recreate();
+//                    break;
+//                case android.R.id.home:
+//                    Intent intent = new Intent(SignIn.this, HomeActivity.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(intent);
+//                    finish();
+//                    return true;
+//            }
             return super.onOptionsItemSelected(item);
         }
 
-    private void goToUrl (String url) {
-        Uri uriUrl = Uri.parse(url);
-        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-        startActivity(launchBrowser);
-    }
+//    private void goToUrl (String url) {
+//        Uri uriUrl = Uri.parse(url);
+//        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+//        startActivity(launchBrowser);
+//    }
     public void initialize()
     {
         userName = uName.getText().toString().trim();

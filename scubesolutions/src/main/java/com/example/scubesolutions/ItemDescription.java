@@ -8,26 +8,28 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class RequestHelp extends AppCompatActivity implements View.OnClickListener {
+public class ItemDescription extends AppCompatActivity implements View.OnClickListener{
 
-    Button request;
-    Button feedback;
-    TextView timeToWait;
+    TextView storeNametext, itemNametext, itemPrice, aisleNumber, shelfNumber;
+    Button backToSearch;
+    String storeName, itemName;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_help);
-        request = (Button)findViewById(R.id.requestButton);
-        feedback = (Button)findViewById(R.id.feedbackButton);
-        timeToWait = (TextView)findViewById(R.id.waitText);
+        setContentView(R.layout.activity_item_description);
+
+        storeNametext = findViewById(R.id.storeNameHeader);
+        itemNametext = findViewById(R.id.itemName);
+        itemPrice = findViewById(R.id.price);
+        aisleNumber = findViewById(R.id.aisleNumber);
+        shelfNumber = findViewById(R.id.shelfNumber);
+
+        backToSearch = findViewById(R.id.backToSearch);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.app_open,R.string.app_close);
@@ -36,37 +38,27 @@ public class RequestHelp extends AppCompatActivity implements View.OnClickListen
         mToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        feedback.setClickable(false);
-        request.setOnClickListener(this);
-        feedback.setOnClickListener(this);
+        backToSearch.setOnClickListener(this);
+        Intent intent = getIntent();
+        storeName=intent.getStringExtra("StoreName");
+        itemName = intent.getStringExtra("ItemName");
+
+        storeNametext.setText(storeName);
+        itemNametext.setText(itemName);
 
     }
 
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()){
-
-            case R.id.requestButton:
-                timeToWait.setText("Help will be on the help desk in about 1 minutes");
-                feedback.setClickable(true);
-
-                break;
-
-            case R.id.feedbackButton:
-                Toast.makeText(this,"Redirecting...",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, FeedbackPage.class);
-                startActivity(intent);
-                break;
-
-        }
+        Intent i = new Intent(this,SearchItems.class);
+        startActivity(i);
 
     }
     @Override
