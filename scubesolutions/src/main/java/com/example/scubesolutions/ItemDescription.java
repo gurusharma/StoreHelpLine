@@ -1,88 +1,64 @@
 package com.example.scubesolutions;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+public class ItemDescription extends AppCompatActivity implements View.OnClickListener{
 
-public class StoreList extends AppCompatActivity implements View.OnClickListener {
-
-
-    TextView store1, store2, store3, store4;
+    TextView storeNametext, itemNametext, itemPrice, aisleNumber, shelfNumber;
+    Button backToSearch;
+    String storeName, itemName;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_store_list);
-        store1 = (TextView)findViewById(R.id.storeLogo1);
-        store2 = (TextView)findViewById(R.id.storeLogo2);
-        store3 = (TextView)findViewById(R.id.storeLogo3);
-        store4 = (TextView)findViewById(R.id.storeLogo4);
+        setContentView(R.layout.activity_item_description);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        storeNametext = findViewById(R.id.storeNameHeader);
+        itemNametext = findViewById(R.id.itemName);
+        itemPrice = findViewById(R.id.price);
+        aisleNumber = findViewById(R.id.aisleNumber);
+        shelfNumber = findViewById(R.id.shelfNumber);
+
+        backToSearch = findViewById(R.id.backToSearch);
+
+        mDrawerLayout = findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.app_open,R.string.app_close);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        store1.setOnClickListener(this);
-        store2.setOnClickListener(this);
-        store3.setOnClickListener(this);
-        store4.setOnClickListener(this);
+
+        backToSearch.setOnClickListener(this);
+        Intent intent = getIntent();
+        storeName=intent.getStringExtra("StoreName");
+        itemName = intent.getStringExtra("ItemName");
+
+        storeNametext.setText(storeName);
+        itemNametext.setText(itemName);
 
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
 
-            case R.id.storeLogo1:
-
-                Intent intent = new Intent(this, SearchItems.class);
-                intent.putExtra("StoreName", "store1");
-                startActivity(intent);
-                break;
-
-            case R.id.storeLogo2:
-
-                Intent intent1 = new Intent(this, SearchItems.class);
-                intent1.putExtra("StoreName", "store2");
-                startActivity(intent1);
-                break;
-
-            case R.id.storeLogo3:
-
-                Intent intent2 = new Intent(this, SearchItems.class);
-                intent2.putExtra("StoreName", "store3");
-                startActivity(intent2);
-
-                break;
-
-            case R.id.storeLogo4:
-
-                Intent intent3 = new Intent(this, SearchItems.class);
-                intent3.putExtra("StoreName", "store4");
-                startActivity(intent3);
-
-                break;
-
-        }
-
+        Intent i = new Intent(this,SearchItems.class);
+        startActivity(i);
 
     }
     @Override

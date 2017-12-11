@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "972119963770",
-    "firebase_url": "https://chalpadabb.firebaseio.com",
-    "project_id": "chalpadabb",
-    "storage_bucket": "chalpadabb.appspot.com"
+    "project_number": "658169366060",
+    "firebase_url": "https://chalpadabb-1fbb0.firebaseio.com",
+    "project_id": "chalpadabb-1fbb0",
+    "storage_bucket": "chalpadabb-1fbb0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:972119963770:android:85ae1a7b41828ae1",
+        "mobilesdk_app_id": "1:658169366060:android:85ae1a7b41828ae1",
         "android_client_info": {
           "package_name": "com.example.scubesolutions"
         }
       },
       "oauth_client": [
         {
-          "client_id": "972119963770-7l2l0h5l9dk8attj99j3m306lu8bglau.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.scubesolutions",
-            "certificate_hash": "61fc9eb0587e2a813a28a44e9e1aa62dbe54b2f3"
-          }
-        },
-        {
-          "client_id": "972119963770-m553r0t17of8drp2rs7kq4jnnehklv2n.apps.googleusercontent.com",
+          "client_id": "658169366060-mfoimem9pnbbic028vr7pumlrqmm4975.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB2Ipo7mWaSjsEYuFVkRPXwuUP3kY5X7s8"
+          "current_key": "AIzaSyBOxwm-prDSD7qckHDkQk8sol3ga0AqTKM"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "972119963770-m553r0t17of8drp2rs7kq4jnnehklv2n.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
