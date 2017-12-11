@@ -27,7 +27,7 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
     Button addToDB;
 
     String userName, postalCode, eMail, password, password2;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +41,21 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
         pwd2 = (EditText)findViewById(R.id.pwdSignUp2);
         addToDB = (Button)findViewById(R.id.signUpButton);
 
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.app_open,R.string.app_close);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
+
+
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.app_open,R.string.app_close);
+
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -53,9 +63,9 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onStart() {
         super.onStart();
-        
+
         addToDB.setOnClickListener(this);
-        
+
     }
 
     @Override
@@ -118,5 +128,5 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
 //        startActivity(launchBrowser);
 //    }
 
-    
+
 }

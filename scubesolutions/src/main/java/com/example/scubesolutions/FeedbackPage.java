@@ -29,7 +29,10 @@ public class FeedbackPage extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+    //    @Override
 //    @Override
+
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        super.onCreateOptionsMenu(menu);
 //        MenuInflater inflater = getMenuInflater();
@@ -69,4 +72,8 @@ public class FeedbackPage extends AppCompatActivity {
 //        startActivity(launchBrowser);
 //    }
 
+
 }
+
+}
+

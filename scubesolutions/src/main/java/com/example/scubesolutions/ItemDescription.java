@@ -31,7 +31,11 @@ public class ItemDescription extends AppCompatActivity implements View.OnClickLi
 
         backToSearch = findViewById(R.id.backToSearch);
 
+
+        mDrawerLayout = findViewById(R.id.drawerLayout);
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.app_open,R.string.app_close);
 
         mDrawerLayout.addDrawerListener(mToggle);
@@ -87,4 +91,8 @@ public class ItemDescription extends AppCompatActivity implements View.OnClickLi
 //        }
         return super.onOptionsItemSelected(item);
     }
+
 }
+
+}
+

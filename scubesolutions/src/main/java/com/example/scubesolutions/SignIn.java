@@ -63,6 +63,13 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         if(view == signInB) {
             initialize();
 
+
+
+
+        if(view == signInB) {
+            initialize();
+
+
             //TODO: also add the sign in information in the shared preferance, and fingerprint thing.
 
             if (userName.isEmpty() || password.isEmpty()) {
@@ -79,24 +86,41 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
         else if(view==signUpB)
         {
+
+            Intent i1 = new Intent(this, SignupPage.class);
+            startActivity(i1);
+
                 Intent i1 = new Intent(this, SignupPage.class);
                 startActivity(i1);
+
         }
 
     }
 
+
+    //        @Override
+
 //        @Override
+
 //        public boolean onCreateOptionsMenu(Menu menu) {
 //            super.onCreateOptionsMenu(menu);
 //            MenuInflater inflater = getMenuInflater();
 //            inflater.inflate(R.menu.menu, menu);
 //            return true;
 //        }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(mToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             if(mToggle.onOptionsItemSelected(item)){
                 return true;
             }
+
 //            switch (item.getItemId()) {
 //                case R.id.logo:
 //                    goToUrl("http://google.com");
@@ -114,10 +138,17 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 //                    finish();
 //                    return true;
 //            }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    //    private void goToUrl (String url) {
+
             return super.onOptionsItemSelected(item);
         }
 
 //    private void goToUrl (String url) {
+
 //        Uri uriUrl = Uri.parse(url);
 //        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
 //        startActivity(launchBrowser);

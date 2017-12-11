@@ -29,6 +29,21 @@
             tools:layout_constraintRight_creator="1" />
 
         <EditText
+
+            android:id="@+id/userIdEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="29dp"
+            android:ems="10"
+            android:hint="User name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signinHeader"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
         android:id="@+id/userIdEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,6 +57,7 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
+
 
         <TextView
             android:id="@+id/pwdText"
@@ -57,6 +73,33 @@
             tools:layout_constraintLeft_creator="1" />
 
         <EditText
+
+            android:id="@+id/pwdEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:layout_constraintBaseline_toBaselineOf="@+id/pwdText"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+        <TextView
+            android:id="@+id/signinHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Sign IN"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
         android:id="@+id/pwdEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,6 +126,7 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
 
+
         <Button
             android:id="@+id/signinButton"
             android:layout_width="wrap_content"
@@ -106,7 +150,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="81dp"
+
             android:onClick="GoNext"
+
             android:text="SIGN UP as a new user"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -125,5 +171,9 @@
 
     </android.support.design.widget.NavigationView>
 
+
 </android.support.v4.widget.DrawerLayout>
+
+</android.support.v4.widget.DrawerLayout>
+
 

@@ -13,6 +13,20 @@
         android:background="@color/colorLightBlue"
         android:orientation="vertical">
         <TextView
+
+            android:id="@+id/searchHead"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="356dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Store Search"
+            app:layout_constraintBottom_toTopOf="@+id/helpButton"
+            app:layout_constraintEnd_toEndOf="@+id/searchEdit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         android:id="@+id/searchHead"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -25,6 +39,7 @@
         app:layout_constraintEnd_toEndOf="@+id/searchEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
         <EditText
             android:id="@+id/searchEdit"
@@ -42,6 +57,27 @@
             app:layout_constraintTop_toBottomOf="@+id/searchHead" />
 
         <TextView
+
+            android:id="@+id/trendingText"
+            android:layout_width="220dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="16dp"
+            android:text="Trending Items"
+            app:layout_constraintBottom_toTopOf="@+id/trendingItem1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchEdit" />
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@android:string/search_go"
+            app:layout_constraintBaseline_toBaselineOf="@+id/searchEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/searchEdit" />
+
         android:id="@+id/trendingText"
         android:layout_width="220dp"
         android:layout_height="0dp"
@@ -61,6 +97,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/searchEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/searchEdit" />
+
 
         <TextView
             android:id="@+id/trendingItem1"
@@ -129,5 +166,10 @@
 
     </android.support.design.widget.NavigationView>
 
+
 </android.support.v4.widget.DrawerLayout>
+
+
+</android.support.v4.widget.DrawerLayout>
+
 
