@@ -11,17 +11,18 @@ import android.widget.Toast;
 
 public class RequestHelp extends AppCompatActivity implements View.OnClickListener {
 
-    Button request = (Button)findViewById(R.id.requestButton);
-    Button feedback = (Button)findViewById(R.id.feedbackButton);
-
-
-
-    TextView timeToWait = (TextView)findViewById(R.id.waitText);
+    Button request;
+    Button feedback;
+    TextView timeToWait;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_help);
+        request = (Button)findViewById(R.id.requestButton);
+        feedback = (Button)findViewById(R.id.feedbackButton);
+        timeToWait = (TextView)findViewById(R.id.waitText);
+
     }
 
     @Override

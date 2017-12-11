@@ -15,11 +15,11 @@ import android.widget.Toast;
 
 public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
-    Button signInB = (Button)findViewById(R.id.signinButton);
-    Button signUpB = (Button)findViewById(R.id.signupButton);
+    Button signInB;
+    Button signUpB;
 
-    EditText uName = (EditText)findViewById(R.id.userIdEdit);
-    EditText pwd = (EditText)findViewById(R.id.pwdEdit);
+    EditText uName;
+    EditText pwd;
 
     String userName, password;
 
@@ -27,6 +27,10 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        signInB = findViewById(R.id.signinButton);
+        signUpB = findViewById(R.id.signupButton);
+        uName = findViewById(R.id.userIdEdit);
+        pwd = findViewById(R.id.pwdEdit);
 
 
     }
@@ -38,34 +42,36 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         signInB.setOnClickListener(this);
         signUpB.setOnClickListener(this);
 
-        userName = uName.getText().toString().trim();
-        password = pwd.getText().toString().trim();
+
 
     }
     @Override
 
     public void onClick(View view) {
 
-        switch (view.getId()){
+
+
+        if(view == signInB) {
+            initialize();
 
             //TODO: also add the sign in information in the shared preferance, and fingerprint thing.
-            case R.id.signinButton:
-                if(userName.equals("")|| password.equals(""))
-                    Toast.makeText(this,"Please fill Credentials",Toast.LENGTH_SHORT).show();
 
-                //TODO:add validation and then pass the value to the database to check
+            if (userName.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill Credentials", Toast.LENGTH_SHORT).show();
+            }
+            //TODO:add validation and then pass the value to the database to check
 
-                else{
-                    Toast.makeText(this,"Redirecting...",Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(SignIn.this, StoreList.class);
-                    startActivity(i);
-                }
-                break;
-            case R.id.signupButton:
+            else {
+                Toast.makeText(this, "Redirecting...", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(SignIn.this, StoreList.class);
+                startActivity(i);
+            }
+        }
+
+        else if(view==signUpB)
+        {
                 Intent i1 = new Intent(this, SignupPage.class);
                 startActivity(i1);
-
-
         }
 
     }
@@ -103,6 +109,11 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
+    }
+    public void initialize()
+    {
+        userName = uName.getText().toString().trim();
+        password = pwd.getText().toString().trim();
     }
 
 

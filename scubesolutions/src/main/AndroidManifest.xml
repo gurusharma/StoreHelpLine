@@ -21,7 +21,8 @@
         <activity android:name=".SignupPage" />
         <activity android:name=".StoreList" />
         <activity android:name=".SearchItems" />
-        <activity android:name=".RequestHelp"></activity>
+        <activity android:name=".RequestHelp" />
+        <activity android:name=".ItemDescription"></activity>
     </application>
 
 </manifest>
