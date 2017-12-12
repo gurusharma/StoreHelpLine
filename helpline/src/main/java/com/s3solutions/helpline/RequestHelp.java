@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+//Scubesolutions
 public class RequestHelp extends AppCompatActivity implements View.OnClickListener {
 
     Button request;
@@ -56,7 +56,7 @@ public class RequestHelp extends AppCompatActivity implements View.OnClickListen
         switch (view.getId()){
 
             case R.id.requestButton:
-                timeToWait.setText("Help will be on the help desk in about 1 minutes");
+                timeToWait.setText(R.string.requestStatus);
                 feedback.setClickable(true);
 
                 break;

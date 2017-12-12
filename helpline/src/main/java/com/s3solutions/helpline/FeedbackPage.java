@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
+//Scubesolutions
 public class FeedbackPage extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
@@ -25,7 +25,7 @@ public class FeedbackPage extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     //    @Override

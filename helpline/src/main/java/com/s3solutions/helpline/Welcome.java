@@ -17,7 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+//Scubesolutions
 public class Welcome extends AppCompatActivity {
 
     private ViewPager viewPager;
@@ -117,7 +117,7 @@ public class Welcome extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(Welcome.this, HomeActivity.class));
+        startActivity(new Intent(Welcome.this, SignIn.class));
         finish();
     }
 

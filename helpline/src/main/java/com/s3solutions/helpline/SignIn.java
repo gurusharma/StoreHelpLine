@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,7 +23,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
+//Scubesolutions
 public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
     Button signInB;
@@ -52,7 +53,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
@@ -75,7 +76,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         String eid = email.getText().toString().trim();
         String pass = pwd.getText().toString().trim();
 
-        progressDialog.setMessage("Signing user");
+        progressDialog.setMessage(getString(R.string.signinUser));
         progressDialog.show();
 
         firebaseAuth.signInWithEmailAndPassword(eid,pass)
@@ -88,12 +89,12 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                         {
                             String eid = email.getText().toString().trim();
                             Intent i = new Intent(getApplicationContext(),StoreList.class);
-                            i.putExtra("Username",eid);
+                            i.putExtra(getString(R.string.userName),eid);
                             startActivity(i);
                         }
                         else
                         {
-                            Toast.makeText(getApplicationContext(),"Invalid E-ID or password",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), R.string.wrongID,Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -101,9 +102,25 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
     private boolean validate() {
         //TODO: VALIDATION HERE
-
-        return true;
-
+        String eid = email.getText().toString().trim();
+        String pid = pwd.getText().toString().trim();
+        boolean valid = true;
+        if(eid.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(eid).matches())
+        {
+            email.setError(getString(R.string.invalidEmailID));
+            valid = false;
+        }
+        if(pid.isEmpty())
+        {
+            pwd.setError(getString(R.string.enterPsswd));
+            valid = false;
+        }
+        if(pid.length()<8)
+        {
+            pwd.setError(getString(R.string.passwdLength));
+            valid = false;
+        }
+        return valid;
     }
 
     @Override
@@ -117,7 +134,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
             if(!validate())
             {
-                Toast.makeText(this,"Login has failed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.loninFail,Toast.LENGTH_SHORT).show();
             }
             else
                 userLogin();
@@ -136,6 +153,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
         }
 
     }
+
 
     //        @Override
 //        public boolean onCreateOptionsMenu(Menu menu) {

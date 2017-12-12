@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="31dp"
-            android:text="Select a Store"
+            android:text="@string/select_a_store"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="53dp"
-            android:text="TextView"
+            android:text="@string/store1"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             app:layout_constraintStart_toStartOf="@+id/selectStoreHeader"
             app:layout_constraintTop_toBottomOf="@+id/selectStoreHeader" />
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="47dp"
-            android:text="TextView"
+            android:text="@string/store2"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             app:layout_constraintStart_toStartOf="@+id/storeLogo1"
             app:layout_constraintTop_toBottomOf="@+id/storeLogo1" />
@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="57dp"
-            android:text="TextView"
+            android:text="@string/store3"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             app:layout_constraintStart_toStartOf="@+id/storeLogo2"
             app:layout_constraintTop_toBottomOf="@+id/storeLogo2" />
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="51dp"
-            android:text="TextView"
+            android:text="@string/store4"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             app:layout_constraintStart_toStartOf="@+id/storeLogo3"
             app:layout_constraintTop_toBottomOf="@+id/storeLogo3" />

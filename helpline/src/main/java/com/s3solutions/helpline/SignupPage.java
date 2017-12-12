@@ -7,6 +7,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,7 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
+//Scubesolutions
 public class SignupPage extends AppCompatActivity implements View.OnClickListener {
 
     EditText uName;
@@ -90,11 +91,11 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
                         if(task.isSuccessful())
                         {
                             finish();
-                            Toast.makeText(getApplicationContext(),"Registration Successful",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), R.string.regSucc,Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),SignIn.class));
                         }else
                         {
-                            Toast.makeText(getApplicationContext(),"Registered failed: Please check your email and password",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), R.string.resFail,Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -117,7 +118,7 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
         dataInitialize();
         if(!validate())
         {
-            Toast.makeText(this,"Signup has failed",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.signupFail,Toast.LENGTH_SHORT).show();
         }
         else
             registerUser();
@@ -133,8 +134,25 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
         //3)email - specific format
         //4)password - not more than 8 char, and can have anything
         //5)password2 = password
-
-        return true;
+        String eid = email.getText().toString().trim();
+        String pass = pwd.getText().toString().trim();
+        boolean valid = true;
+        if(eid.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(eid).matches())
+        {
+            email.setError("Invalid Email-ID");
+            valid = false;
+        }
+        if(pass.isEmpty())
+        {
+            pwd.setError("Please enter your Password");
+            valid = false;
+        }
+        if(pass.length()<8)
+        {
+            pwd.setError("Password must be 8 characters long");
+            valid = false;
+        }
+        return valid;
 
     }
 

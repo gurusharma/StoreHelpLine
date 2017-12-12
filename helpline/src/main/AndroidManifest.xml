@@ -17,13 +17,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".FeedbackPage" />
-        <activity android:name=".HomeActivity" />
         <activity android:name=".ItemDescription" />
         <activity android:name=".RequestHelp" />
         <activity android:name=".SearchItems" />
         <activity android:name=".SignIn" />
         <activity android:name=".SignupPage" />
-        <activity android:name=".StoreList"></activity>
+        <activity android:name=".StoreList" />
+        <activity android:name=".UserProfile"></activity>
     </application>
 
 </manifest>

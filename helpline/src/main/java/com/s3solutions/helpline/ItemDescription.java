@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+//Scubesolutions
 public class ItemDescription extends AppCompatActivity implements View.OnClickListener{
 
     TextView storeNametext, itemNametext, itemPrice, aisleNumber, shelfNumber;
