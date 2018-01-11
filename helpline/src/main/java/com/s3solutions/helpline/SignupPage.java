@@ -1,5 +1,6 @@
 package com.s3solutions.helpline;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -7,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,20 +25,21 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 //Scubesolutions
-public class SignupPage extends AppCompatActivity implements View.OnClickListener {
+public class SignupPage extends AppCompatActivity{ //implements View.OnClickListener {
 
     EditText uName;
     EditText postcode;
-    EditText email;
+    EditText ed1;
     EditText pwd;
     EditText pwd2;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    Button addToDB;
+    Button signUpButton;
 
-    String userName, postalCode, eMail, password, password2;
+    //String userName, postalCode, eMail, password, password2;
 
     private FirebaseAuth firebaseAuth;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -44,6 +47,7 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        progressDialog = new ProgressDialog(this);
         setContentView(R.layout.activity_sign_up);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -63,10 +67,10 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
 
         //uName = (EditText) findViewById(R.id.userNameSignUp);
        // postcode = (EditText)findViewById(R.id.postalCodeEdit);
-        email  = (EditText)findViewById(R.id.emailEdit);
+        ed1  = (EditText)findViewById(R.id.emailEdit);
         pwd = (EditText)findViewById(R.id.pwdSignUp1);
         pwd2 = (EditText)findViewById(R.id.pwdSignUp2);
-        addToDB = (Button)findViewById(R.id.signUpButton);
+        signUpButton = (Button)findViewById(R.id.signUpButton);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.app_open,R.string.app_close);
@@ -75,96 +79,145 @@ public class SignupPage extends AppCompatActivity implements View.OnClickListene
         mToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (v == signUpButton)
+                {
+                    registerUser();
+                    Intent i = new Intent(getApplicationContext(), SignIn.class);
+                    startActivity(i);
+
+                }
+            }
+        });
+
     }
+    private  void registerUser(){
+        String email = ed1.getText().toString().trim();
+        String password = pwd.getText().toString().trim();
 
-    private void registerUser()
-    {
-        String eid = email.getText().toString().trim();
-        String pass = pwd.getText().toString().trim();
+        if (TextUtils.isEmpty(email)){
+            Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(password)){
+            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        progressDialog.setMessage("Registering User...");
+        progressDialog.show();
 
-
-
-        firebaseAuth.createUserWithEmailAndPassword(eid,pass)
+        firebaseAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful())
-                        {
-                            finish();
-                            Toast.makeText(getApplicationContext(), R.string.regSucc,Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),SignIn.class));
-                        }else
-                        {
-                            Toast.makeText(getApplicationContext(), R.string.resFail,Toast.LENGTH_SHORT).show();
-
+                        if (task.isSuccessful()){
+                            Toast.makeText(SignupPage.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                            progressDialog.hide();
+                            //finish();
+                            //Intent i = new Intent(getApplicationContext(), LogInActivity.class);
+                            //startActivity(i);
                         }
-
+                        else {
+                            Toast.makeText(SignupPage.this, "Registration Error", Toast.LENGTH_SHORT).show();
+                            progressDialog.hide();
+                        }
                     }
                 });
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-        addToDB.setOnClickListener(this);
+//    private void registerUser()
+//    {
+//        String eid = email.getText().toString().trim();
+//        String pass = pwd.getText().toString().trim();
+//
+//
+//
+//        firebaseAuth.createUserWithEmailAndPassword(eid,pass)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if(task.isSuccessful())
+//                        {
+//                            finish();
+//                            Toast.makeText(getApplicationContext(), R.string.regSucc,Toast.LENGTH_SHORT).show();
+//                            startActivity(new Intent(getApplicationContext(),SignIn.class));
+//                        }else
+//                        {
+//                            Toast.makeText(getApplicationContext(), R.string.resFail,Toast.LENGTH_SHORT).show();
+//
+//                        }
+//
+//                    }
+//                });
+//    }
 
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//        addToDB.setOnClickListener(this);
+//
+//    }
 
-    @Override
-    public void onClick(View view) {
+//    @Override
+//    public void onClick(View view) {
+//
+//
+//        dataInitialize();
+//        if(!validate())
+//        {
+//            Toast.makeText(this, R.string.signupFail,Toast.LENGTH_SHORT).show();
+//        }
+//        else
+//            registerUser();
+//            //startActivity(new Intent(getApplicationContext(),StoreList.class));
+//
+//    }
 
+//    private boolean validate() {
+//
+//        //TODO: add all the nessesory validation
+//        //1)username - REMOVE
+//        //2)postalcode - REMOVE
+//        //3)email - specific format
+//        //4)password - not more than 8 char, and can have anything
+//        //5)password2 = password
+//        String eid = email.getText().toString().trim();
+//        String pass = pwd.getText().toString().trim();
+//        boolean valid = true;
+//        if(eid.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(eid).matches())
+//        {
+//            email.setError("Invalid Email-ID");
+//            valid = false;
+//        }
+//        if(pass.isEmpty())
+//        {
+//            pwd.setError("Please enter your Password");
+//            valid = false;
+//        }
+//        if(pass.length()<8)
+//        {
+//            pwd.setError("Password must be 8 characters long");
+//            valid = false;
+//        }
+//        return valid;
+//
+//    }
 
-        dataInitialize();
-        if(!validate())
-        {
-            Toast.makeText(this, R.string.signupFail,Toast.LENGTH_SHORT).show();
-        }
-        else
-            registerUser();
-            //startActivity(new Intent(getApplicationContext(),StoreList.class));
-
-    }
-
-    private boolean validate() {
-
-        //TODO: add all the nessesory validation
-        //1)username - REMOVE
-        //2)postalcode - REMOVE
-        //3)email - specific format
-        //4)password - not more than 8 char, and can have anything
-        //5)password2 = password
-        String eid = email.getText().toString().trim();
-        String pass = pwd.getText().toString().trim();
-        boolean valid = true;
-        if(eid.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(eid).matches())
-        {
-            email.setError("Invalid Email-ID");
-            valid = false;
-        }
-        if(pass.isEmpty())
-        {
-            pwd.setError("Please enter your Password");
-            valid = false;
-        }
-        if(pass.length()<8)
-        {
-            pwd.setError("Password must be 8 characters long");
-            valid = false;
-        }
-        return valid;
-
-    }
-
-    public void dataInitialize(){
-       // userName = uName.getText().toString().trim();
-       // postalCode = postcode.getText().toString().trim();
-        eMail = email.getText().toString().trim();
-        password = pwd.getText().toString();
-        password2 = pwd2.getText().toString();
-
-
-    }
+//    public void dataInitialize(){
+//       // userName = uName.getText().toString().trim();
+//       // postalCode = postcode.getText().toString().trim();
+//        eMail = email.getText().toString().trim();
+//        password = pwd.getText().toString();
+//        password2 = pwd2.getText().toString();
+//
+//
+//    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
