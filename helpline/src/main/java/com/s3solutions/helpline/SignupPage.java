@@ -66,11 +66,19 @@ public class SignupPage extends AppCompatActivity{ //implements View.OnClickList
 
 
         //uName = (EditText) findViewById(R.id.userNameSignUp);
+
         // postcode = (EditText)findViewById(R.id.postalCodeEdit);
         ed1 = (EditText) findViewById(R.id.emailEdit);
         pwd = (EditText) findViewById(R.id.pwdSignUp1);
         pwd2 = (EditText) findViewById(R.id.pwdSignUp2);
         signUpButton = (Button) findViewById(R.id.signUpButton);
+
+       // postcode = (EditText)findViewById(R.id.postalCodeEdit);
+        ed1  = (EditText)findViewById(R.id.emailEdit);
+        pwd = (EditText)findViewById(R.id.pwdSignUp1);
+        pwd2 = (EditText)findViewById(R.id.pwdSignUp2);
+        signUpButton = (Button)findViewById(R.id.signUpButton);
+
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.app_open, R.string.app_close);
@@ -79,6 +87,7 @@ public class SignupPage extends AppCompatActivity{ //implements View.OnClickList
         mToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +117,38 @@ public class SignupPage extends AppCompatActivity{ //implements View.OnClickList
 //            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
 //            return;
 //        }
+        progressDialog.setMessage("Registering User...");
+        progressDialog.show();
+
+
+
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (v == signUpButton)
+                {
+                    registerUser();
+                    Intent i = new Intent(getApplicationContext(), SignIn.class);
+                    startActivity(i);
+
+                }
+            }
+        });
+
+    }
+    private  void registerUser(){
+        String email = ed1.getText().toString().trim();
+        String password = pwd.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email)){
+            Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(password)){
+            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
+            return;
+        }
         progressDialog.setMessage("Registering User...");
         progressDialog.show();
 
@@ -165,6 +206,7 @@ public class SignupPage extends AppCompatActivity{ //implements View.OnClickList
 //
 //    }
 
+
 //    @Override
 //    public void onClick(View view) {
 //
@@ -208,6 +250,53 @@ public class SignupPage extends AppCompatActivity{ //implements View.OnClickList
         }
         return valid;
     }
+
+
+//    @Override
+//    public void onClick(View view) {
+//
+//
+//        dataInitialize();
+//        if(!validate())
+//        {
+//            Toast.makeText(this, R.string.signupFail,Toast.LENGTH_SHORT).show();
+//        }
+//        else
+//            registerUser();
+//            //startActivity(new Intent(getApplicationContext(),StoreList.class));
+//
+//    }
+
+//    private boolean validate() {
+//
+//        //TODO: add all the nessesory validation
+//        //1)username - REMOVE
+//        //2)postalcode - REMOVE
+//        //3)email - specific format
+//        //4)password - not more than 8 char, and can have anything
+//        //5)password2 = password
+//        String eid = email.getText().toString().trim();
+//        String pass = pwd.getText().toString().trim();
+//        boolean valid = true;
+//        if(eid.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(eid).matches())
+//        {
+//            email.setError("Invalid Email-ID");
+//            valid = false;
+//        }
+//        if(pass.isEmpty())
+//        {
+//            pwd.setError("Please enter your Password");
+//            valid = false;
+//        }
+//        if(pass.length()<8)
+//        {
+//            pwd.setError("Password must be 8 characters long");
+//            valid = false;
+//        }
+//        return valid;
+//
+//    }
+
 
 //    public void dataInitialize(){
 //       // userName = uName.getText().toString().trim();
