@@ -55,9 +55,9 @@ public class SignupPage extends AppCompatActivity{ //implements View.OnClickList
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            s=extras.getString("FROM_ACTIVITY");
+            s = extras.getString("FROM_ACTIVITY");
         }
-        if(!s.equals("login_act")) {
+        if (!s.equals("login_act")) {
             if (firebaseAuth.getCurrentUser() != null) {
                 startActivity(new Intent(this, StoreList.class));
                 finish();
@@ -66,19 +66,61 @@ public class SignupPage extends AppCompatActivity{ //implements View.OnClickList
 
 
         //uName = (EditText) findViewById(R.id.userNameSignUp);
+
+        // postcode = (EditText)findViewById(R.id.postalCodeEdit);
+        ed1 = (EditText) findViewById(R.id.emailEdit);
+        pwd = (EditText) findViewById(R.id.pwdSignUp1);
+        pwd2 = (EditText) findViewById(R.id.pwdSignUp2);
+        signUpButton = (Button) findViewById(R.id.signUpButton);
+
        // postcode = (EditText)findViewById(R.id.postalCodeEdit);
         ed1  = (EditText)findViewById(R.id.emailEdit);
         pwd = (EditText)findViewById(R.id.pwdSignUp1);
         pwd2 = (EditText)findViewById(R.id.pwdSignUp2);
         signUpButton = (Button)findViewById(R.id.signUpButton);
 
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        mToggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.app_open,R.string.app_close);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.app_open, R.string.app_close);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (v == signUpButton) {
+                    if (!validate()) {
+                        Toast.makeText(getApplicationContext(), R.string.signupFail, Toast.LENGTH_SHORT).show();
+                    } else {
+                        registerUser();
+                        startActivity(new Intent(getApplicationContext(), SignIn.class));
+                        registerUser();
+                    }
+                }
+            }
+        });
+    }
+    private  void registerUser(){
+        String email = ed1.getText().toString().trim();
+        String password = pwd.getText().toString().trim();
+
+//        if (TextUtils.isEmpty(email)){
+//            Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        if (TextUtils.isEmpty(password)){
+//            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+        progressDialog.setMessage("Registering User...");
+        progressDialog.show();
+
+
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,6 +206,52 @@ public class SignupPage extends AppCompatActivity{ //implements View.OnClickList
 //
 //    }
 
+
+//    @Override
+//    public void onClick(View view) {
+//
+//
+//        dataInitialize();
+//        if(!validate())
+//        {
+//            Toast.makeText(this, R.string.signupFail,Toast.LENGTH_SHORT).show();
+//        }
+//        else
+//            registerUser();
+//            //startActivity(new Intent(getApplicationContext(),StoreList.class));
+//
+//    }
+
+    private boolean validate() {
+
+        String eid = ed1.getText().toString().trim();
+        String pass = pwd.getText().toString().trim();
+        String pass2 = pwd2.getText().toString().trim();
+        boolean valid = true;
+        if(eid.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(eid).matches())
+        {
+            ed1.setError("Please enter valid e-mail");
+            valid = false;
+        }
+        else if(pass.isEmpty())
+        {
+            pwd.setError("Please enter your Password");
+            valid = false;
+        }
+        else if(pass.length()<8)
+        {
+            pwd.setError("Password must be 8 characters long");
+            valid = false;
+        }
+        else if(!pass.equals(pass2))
+        {
+            pwd2.setError("Password didn't match");
+            valid = false;
+        }
+        return valid;
+    }
+
+
 //    @Override
 //    public void onClick(View view) {
 //
@@ -208,6 +296,7 @@ public class SignupPage extends AppCompatActivity{ //implements View.OnClickList
 //        return valid;
 //
 //    }
+
 
 //    public void dataInitialize(){
 //       // userName = uName.getText().toString().trim();
