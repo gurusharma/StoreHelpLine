@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.s3solutions.helpline.StoreList"
+    android:id="@+id/drawerLayout">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorLightBlue"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/selectStoreHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="31dp"
+            android:text="@string/select_a_store"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+        <TextView
+            android:id="@+id/storeLogo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="53dp"
+            android:text="@string/store1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            app:layout_constraintStart_toStartOf="@+id/selectStoreHeader"
+            app:layout_constraintTop_toBottomOf="@+id/selectStoreHeader" />
+
+        <TextView
+            android:id="@+id/storeLogo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="47dp"
+            android:text="@string/store2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            app:layout_constraintStart_toStartOf="@+id/storeLogo1"
+            app:layout_constraintTop_toBottomOf="@+id/storeLogo1" />
+
+        <TextView
+            android:id="@+id/storeLogo3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="57dp"
+            android:text="@string/store3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            app:layout_constraintStart_toStartOf="@+id/storeLogo2"
+            app:layout_constraintTop_toBottomOf="@+id/storeLogo2" />
+
+        <TextView
+            android:id="@+id/storeLogo4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="51dp"
+            android:text="@string/store4"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            app:layout_constraintStart_toStartOf="@+id/storeLogo3"
+            app:layout_constraintTop_toBottomOf="@+id/storeLogo3" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/navigation_menu"
+        android:layout_gravity="start">
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
