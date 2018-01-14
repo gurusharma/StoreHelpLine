@@ -1,6 +1,9 @@
 package com.s3solutions.helpline;
 
 import android.content.Context;
+<<<<<<< HEAD
+import android.content.Intent;
+>>>>>>> AbhayGeoLocation3
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -8,20 +11,38 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
+=======
+import android.widget.Toast;
+>>>>>>> AbhayGeoLocation3
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+<<<<<<< HEAD
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class StoreMapsActivity extends FragmentActivity implements OnMapReadyCallback {
+=======
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CircleOptions;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+public class StoreMapsActivity extends FragmentActivity implements OnMapReadyCallback{
+>>>>>>> AbhayGeoLocation3
 
     private GoogleMap mMap;
     private double currentLat;
     private double currentLong;
+<<<<<<< HEAD
+=======
+    private Marker Store1;
+>>>>>>> AbhayGeoLocation3
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +123,7 @@ public class StoreMapsActivity extends FragmentActivity implements OnMapReadyCal
         mMap.addCircle(new CircleOptions().center(currentLoc));
 
         LatLng store1 = new LatLng(43.652067, -79.74249800000001);
+<<<<<<< HEAD
         mMap.addMarker(new MarkerOptions().position(store1).title("Store1"));
         LatLng store2 = new LatLng(43.728971, -79.605458);
         mMap.addMarker(new MarkerOptions().position(store2).title("Store2"));
@@ -111,4 +133,68 @@ public class StoreMapsActivity extends FragmentActivity implements OnMapReadyCal
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLoc));
     }
+=======
+        Store1 = mMap.addMarker(new MarkerOptions().position(store1).title("Store1").snippet("Store 1"));
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener(){
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                //int position = (int)(marker.getTag());
+                //Using position get Value from arraylist
+                if (marker.getTitle().equals("Store1")){
+                    Toast.makeText(getApplicationContext(),"Store1",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), SearchItems.class);
+                    intent.putExtra("StoreName", "store1");
+                    startActivity(intent);
+                }
+
+                return false;
+            }
+        });
+
+        LatLng store2 = new LatLng(43.728971, -79.605458);
+        mMap.addMarker(new MarkerOptions().position(store2).title("Store2"));
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener(){
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                //int position = (int)(marker.getTag());
+                //Using position get Value from arraylist
+                if (marker.getTitle().equals("Store2")){
+                    Toast.makeText(getApplicationContext(),"Store2",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), SearchItems.class);
+                    intent.putExtra("StoreName", "store2");
+                    startActivity(intent);
+                }
+
+                return false;
+            }
+        });
+
+        LatLng store3 = new LatLng(43.6425662, -79.38705679999998);
+        mMap.addMarker(new MarkerOptions().position(store3).title("Store3"));
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener(){
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                //int position = (int)(marker.getTag());
+                //Using position get Value from arraylist
+                if (marker.getTitle().equals("Store3")){
+                    Toast.makeText(getApplicationContext(),"Store3",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), SearchItems.class);
+                    intent.putExtra("StoreName", "store3");
+                    startActivity(intent);
+                }
+
+                return false;
+            }
+        });
+
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(store1));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLoc));
+    }
+
+
+>>>>>>> AbhayGeoLocation3
 }
