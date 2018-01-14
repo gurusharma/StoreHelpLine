@@ -86,7 +86,7 @@ public class StoreList extends AppCompatActivity implements View.OnClickListener
                     MY_PERMISSIONS_REQUEST_COARSE_LOCATION);
 
         }
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2, 100, locationListener);
     }
 
     @Override
