@@ -71,6 +71,7 @@
     <string name="regSucc">Registration Successful</string>
     <string name="resFail">Registered failed: Please check your email and password</string>
     <string name="signupFail">Signup has failed</string>
+    <string name="title_activity_store_maps">Map</string>
 
 
 </resources>

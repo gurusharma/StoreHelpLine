@@ -88,7 +88,8 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                         if(task.isSuccessful())
                         {
                             String eid = email.getText().toString().trim();
-                            Intent i = new Intent(getApplicationContext(),StoreList.class);
+//                            Intent i = new Intent(getApplicationContext(),StoreList.class);
+                            Intent i = new Intent(getApplicationContext(),StoreMapsActivity.class);
                             i.putExtra(getString(R.string.userName),eid);
                             startActivity(i);
                         }
