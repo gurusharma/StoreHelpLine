@@ -42,4 +42,9 @@
         <item>@color/dot_inactive_screen3</item>
     </array>
 
+    <color name="colorGreen">#A4C639</color>
+    <color name="colorPurple">#7D1935</color>
+    <color name="colorDarkOrange">#FF9009</color>
+    <color name="colorMaroon">#800000</color>
+
 </resources>
