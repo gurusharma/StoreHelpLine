@@ -5,10 +5,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+
 //Scubesolutions
 public class ItemDescription extends AppCompatActivity implements View.OnClickListener{
 
@@ -62,18 +67,31 @@ public class ItemDescription extends AppCompatActivity implements View.OnClickLi
 
     }
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(mToggle.onOptionsItemSelected(item)){
             return true;
         }
-//        switch (item.getItemId()) {
+        switch (item.getItemId()) {
 //            case R.id.logo:
-//                goToUrl("http://scube.com");
-//                break;
-//            case R.id.help:
-//                goToUrl("http://scube.com");
-//                break;
+//                FirebaseAuth.getInstance().signOut();
+//                Intent intent = new Intent(getApplicationContext(), SignIn.class);
+//                startActivity(intent);
+//                finish();
+//                return true;
+            case R.id.Logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), SignIn.class);
+                startActivity(intent);
+                finish();
+                break;
 //            case R.id.name:
 //                recreate();
 //                break;
@@ -84,7 +102,33 @@ public class ItemDescription extends AppCompatActivity implements View.OnClickLi
 //                startActivity(intent);
 //                finish();
 //                return true;
-//        }
+        }
         return super.onOptionsItemSelected(item);
     }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        if(mToggle.onOptionsItemSelected(item)){
+//            return true;
+//        }
+////        switch (item.getItemId()) {
+////            case R.id.logo:
+////                goToUrl("http://scube.com");
+////                break;
+////            case R.id.help:
+////                goToUrl("http://scube.com");
+////                break;
+////            case R.id.name:
+////                recreate();
+////                break;
+////
+////            case android.R.id.home:
+////                Intent intent = new Intent(FeedbackPage.this, HomeActivity.class);
+////                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+////                startActivity(intent);
+////                finish();
+////                return true;
+////        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }

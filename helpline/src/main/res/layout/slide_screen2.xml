@@ -21,7 +21,7 @@
         <ImageView
             android:layout_width="@dimen/img_width_height"
             android:layout_height="@dimen/img_width_height"
-            android:src="@drawable/canadian_tire_logo" />
+            android:src="@drawable/search" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

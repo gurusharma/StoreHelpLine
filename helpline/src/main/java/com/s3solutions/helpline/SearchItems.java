@@ -5,12 +5,17 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+
 //Scubesolutions
 public class SearchItems extends AppCompatActivity implements View.OnClickListener {
 
@@ -139,19 +144,32 @@ public class SearchItems extends AppCompatActivity implements View.OnClickListen
         }
 
     }
+            @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            super.onCreateOptionsMenu(menu);
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.menu, menu);
+            return true;
+        }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if(mToggle.onOptionsItemSelected(item)){
             return true;
         }
-//        switch (item.getItemId()) {
+        switch (item.getItemId()) {
 //            case R.id.logo:
-//                goToUrl("http://scube.com");
-//                break;
-//            case R.id.help:
-//                goToUrl("http://scube.com");
-//                break;
+//                FirebaseAuth.getInstance().signOut();
+//                Intent intent = new Intent(getApplicationContext(), SignIn.class);
+//                startActivity(intent);
+//                finish();
+//                return true;
+            case R.id.Logout:
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), SignIn.class);
+                startActivity(intent);
+                finish();
+                break;
 //            case R.id.name:
 //                recreate();
 //                break;
@@ -162,7 +180,7 @@ public class SearchItems extends AppCompatActivity implements View.OnClickListen
 //                startActivity(intent);
 //                finish();
 //                return true;
-//        }
+        }
         return super.onOptionsItemSelected(item);
     }
 }
